@@ -1,14 +1,17 @@
-/* @tutinfo Import <CODE>Link</CODE> component from <CODE>expo-router</CODE>. */ import { Link } from "expo-router";
-import { StyleSheet, Text, View } from "react-native";
+/* @tutinfo Import the <CODE>Image</CODE> component. */ import { Image } from "expo-image";
+import { StyleSheet, View } from "react-native";
+
+/* @tutinfo Import the image from the "assets/images/" directory. Since this picture is a static resource, you have to reference it using <CODE>require</CODE>. */
+const PlaceholderImage = require("../../assets/images/background-image.png");
 
 export default function Index() {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Home screen</Text>
-      {/* @tutinfo Add <CODE>Link</CODE> component after <CODE>Text</CODE> component and pass the <CODE>href</CODE> prop with <CODE>/about</CODE> route. */}
-      <Link href="/about" style={styles.button}>
-        Go to About screen
-      </Link>
+      {/* @tutinfo Wrap the <CODE>Image</CODE> component inside a container.
+      Also, add the image component to display the placeholder image. */}
+      <View style={styles.imageContainer}>
+        <Image source={PlaceholderImage} style={styles.image} />
+      </View>
     </View>
   );
 }
@@ -17,16 +20,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#25292e",
+    /* @tutinfo Modify container styles to remove <CODE>justifyContent</CODE> property. */
     alignItems: "center",
-    justifyContent: "center",
   },
-  text: {
-    color: "#fff",
+  imageContainer: {
+    flex: 1,
   },
-  /* @tutinfo Add the style of <CODE>fontSize</CODE>, <CODE>textDecorationLine</CODE>, and <CODE>color</CODE> to <CODE>Link</CODE> component. */
-  button: {
-    fontSize: 20,
-    textDecorationLine: "underline",
-    color: "#fff",
+  /* @tutinfo Add styles for the image. */
+  image: {
+    width: 320,
+    height: 440,
+    borderRadius: 18,
   },
 });
