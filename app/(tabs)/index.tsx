@@ -1,6 +1,8 @@
 import { StyleSheet, View } from "react-native";
 
-/* @tutinfo */ import ImageViewer from "@/components/ImageViewer";
+/* @tutinfo */ import Button from "@/components/Button";
+import { StatusBar } from "expo-status-bar";
+import ImageViewer from "../../components/ImageViewer";
 
 const PlaceholderImage = require("../../assets/images/background-image.png");
 
@@ -10,6 +12,11 @@ export default function Index() {
       <View style={styles.imageContainer}>
         <ImageViewer imgSource={PlaceholderImage} />
       </View>
+      <View style={styles.footerContainer}>
+        <Button label="Choose a photo" />
+        <Button label="Use this photo" />
+      </View>
+      <StatusBar style="auto" />
     </View>
   );
 }
@@ -22,5 +29,11 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     flex: 1,
+    paddingTop: 28,
+  },
+  /* @tutinfo Add the styles the following styles. */
+  footerContainer: {
+    flex: 1 / 3,
+    alignItems: "center",
   },
 });
